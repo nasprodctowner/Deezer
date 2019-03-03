@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
-<persistence-unit name="deezerPU" transaction-type="JTA">
+<persistence-unit name="deezerSAPU" transaction-type="JTA">
+    <jta-data-source>BDDeezer</jta-data-source>
+</persistence-unit>
+
+    <persistence-unit name="deezerAAPU" transaction-type="JTA">
         <jta-data-source>BDDeezer</jta-data-source>
     </persistence-unit>
 </persistence>

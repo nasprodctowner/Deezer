@@ -9,6 +9,18 @@ public class Abonne {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAbonne;
+    private Collection<Playlist> lesPlaylists;
+
+    public Abonne(String nom, String prenom, String pseudo, String passwd) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.passwd = passwd;
+    }
+
+    public Abonne()
+    {
+    }
 
     public int getIdAbonne ()  {
         return this.idAbonne;
@@ -54,14 +66,16 @@ public class Abonne {
         this.passwd = value; 
     }
 
-    public Abonne()
-    {
+    @OneToMany
+    @JoinTable(
+            name = "test.ABONNE_PLAYLIST",
+            joinColumns = @JoinColumn(name = "ABONNE_idAbonne"),
+            inverseJoinColumns = @JoinColumn(name = "lesPlaylist_idPlaylist"))
+    public Collection<Playlist> getLesPlaylists() {
+        return lesPlaylists;
     }
 
-    public Abonne(String nom, String prenom, String pseudo, String passwd) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.pseudo = pseudo;
-        this.passwd = passwd;
+    public void setLesPlaylists(Collection<Playlist> lesPlaylists) {
+        this.lesPlaylists = lesPlaylists;
     }
 }

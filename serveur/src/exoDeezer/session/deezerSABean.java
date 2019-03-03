@@ -11,7 +11,7 @@ import java.util.*;
 @Stateless (mappedName="deezerSA")
 public class deezerSABean implements deezerSAItf {
 
-    @PersistenceContext(unitName="deezerPU")
+    @PersistenceContext(unitName="deezerSAPU")
     private EntityManager em;
 
 	public Collection<Object[]> listerMorceau(String titre) {
@@ -33,7 +33,7 @@ public class deezerSABean implements deezerSAItf {
 	
 	public String jouerMorceau(int idMorceau) {
 
-        return "voici le titre de ce morceau : "+em.find(Morceau.class, idMorceau).getTitre();
+        return "voici le titre de ce morceau : "+em.find(Morceau.class, idMorceau).getTitre()+" ";
 	}
 	
 	public boolean abonner(String nom, String prenom, String pseudo, String passwd) {
