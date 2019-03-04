@@ -27,8 +27,6 @@ public class Testeur {
         System.out.println("nas nas : "+daa.identifier("nas","nas"));
 
 
-
-
         //utilisaer cette technique pour elections
         Collection<Object[]> laListe = dsa.listerMorceau("");
         for (Object[] obj : laListe) {
@@ -37,19 +35,20 @@ public class Testeur {
             System.out.println(idMorceau + "     " + artiste);
         }
 
+        System.out.println(dsa.jouerMorceau(1));
+        System.out.println(dsa.jouerMorceau(7));
+
         System.out.println("Playlists dispo : ");
         for (int playlist : daa.listerPlayList()) {
             System.out.println("Playlist : "+playlist);
         }
 
-        /*
 
         System.out.println("Quel est le nom de la nouvelle playlist ?");
         String nom = scanner.nextLine();
 
         int numPlaylist = daa.creerPlaylist(nom);
         System.out.println("Numéro  de Playlist créé : "+numPlaylist);
-        */
 
         int n;
         System.out.println("combien de titre");
@@ -62,29 +61,17 @@ public class Testeur {
             tab[i]=scanner.nextInt();
         }
 
-        /*
-        for(int i=0 ; i<tab.length; i++){
-            System.out.println("morceau numéro "+(i+1));
-            int id = scanner.nextInt();
-            tab[i] = id;
-        }*/
 
-        /*
         System.out.println("quel id de playlist ??");
         int id = scanner.nextInt();
 
         if(daa.peuplerPlaylist(id,tab)) System.out.println("Playlist créé !");
-        */
-
-        System.out.println("quel id de playlist jouer ??");
-        int id = scanner.nextInt();
-
-        System.out.println(daa.jouerPlaylist(id));
 
 
-       // if(dsa.abonner("nos", "nos", "nos", "nos")) System.out.println("ok");
+        System.out.println("quel id de playlist à jouer ??");
+        int idPlaylistJoue = scanner.nextInt();
 
-       // System.out.println(dsa.jouerMorceau(7));
+        System.out.println(daa.jouerPlaylist(idPlaylistJoue));
 
 
     }
